@@ -1,0 +1,598 @@
+**************8 basics **********
+
+package com.basics;
+
+public class ForLooop_ASCII_chart {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		for (int index = 0; index < 255; index++) {
+			System.out.write(index);
+			if (index % 8 == 7)
+				System.out.write('\n');
+			else
+				System.out.write('\t');
+		}
+
+	}
+
+}
+
+
+
+*******************calc**********
+
+package com.basics;
+
+public class CalC {
+
+	public static void add(int a, int b) {
+
+		int c = a + b;
+		System.out.println("Addition=" + c);
+	}
+
+	public static void sub(int a, int b) {
+
+		int c = a - b;
+		System.out.println("Subtraction =" + c);
+	}
+
+	public static void mul(int a, int b) {
+
+		int c = a * b;
+		System.out.println("Multiplication =" + c);
+	}
+
+	public static void division(int a, int b) {
+
+		int c = a / b;
+		System.out.println("Division =" + c);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String opr = args[1];
+		if (opr.equals("+")) {
+			int a = Integer.parseInt(args[0]);
+			int b = Integer.parseInt(args[2]);
+			add(a, b);
+		}
+
+		else if (opr.equals("-")) {
+			int a = Integer.parseInt(args[0]);
+			int b = Integer.parseInt(args[2]);
+			sub(a, b);
+		} else if (opr.equals("m")) {
+			int a = Integer.parseInt(args[0]);
+			int b = Integer.parseInt(args[2]);
+			mul(a, b);
+		}
+
+		else if (opr.equals("/")) {
+			int a = Integer.parseInt(args[0]);
+			int b = Integer.parseInt(args[2]);
+			division(a, b);
+		}
+
+	}
+
+}
+
+
+*************** calender******88package com.basics;
+
+import java.util.Scanner;
+
+public class Calender {
+	
+	
+
+	public static void jan(int m,int y)
+
+	{
+		System.out.println("January "+y+" Has 31 days");
+	}
+	
+	public static void jan(int m,int y)
+
+	{
+		System.out.println("January "+y+" Has 31 days");
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int month;
+		int year;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("please enter the month no.");
+		 month=sc.nextInt();
+		 year=sc.nextInt();
+		 switch(month)
+		 {
+		 case 1: jan(month,year);
+		 			break;
+		 case 1: jan(month,year);
+			break;
+			
+		 case 1: jan(month,year);
+			break;
+			
+		 case 1: jan(month,year);
+			break;
+			
+		 case 1: jan(month,year);
+			break;
+		 			
+		 	
+			 
+		 }
+		 
+		
+		
+		
+		
+		
+
+	}
+
+}
+
+
+&&&&&&&&&&&&&&&&&&7
+ARRAYS
+
+package com.Arrays;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class RandomArray {
+	
+	public static int min(int nums[])
+	{
+		int min=nums[0];
+		for(int i=1;i<nums.length;i++)
+		{
+			if (min > nums[i])
+			{
+				min=nums[i];
+				
+			}
+		}
+		
+		return min;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int size;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the size of array");
+		size = sc.nextInt();
+		int[] nums = new int[size];
+		System.out.println(Arrays.toString(nums));
+    //math random value is enterd in array
+		for (int i = 0; i < nums.length; i++) {
+			nums[i] = (int) (Math.random() * 100);
+		}
+
+		System.out.println(Arrays.toString(nums));
+
+			//min value
+		int min=min(nums);
+		System.out.println("min element="+min);
+		
+		// max
+		
+		int max=nums[0];
+		for(int i=1;i<nums.length;i++)
+		{
+			if (max< nums[i])
+			{
+				max=nums[i];
+				
+			}
+		}
+		System.out.println("max element="+max);
+		
+		//even
+		
+	}
+
+}
+
+&&&&&&&INTERFSCES
+
+package com.Interfaces;
+
+interface Caluculator
+{
+	int add(int no1,int no2);
+	
+}
+public class Test_interfaces {
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+
+	}
+
+}
+******************
+package com.Interfaces;
+
+interface IStack {
+	void push(int item);
+
+	int pop();
+}
+
+public class Test_Stack implements IStack {
+	protected static int[] stackArray = new int[5];
+	protected static int tos = -1; // top of stack
+
+	@Override
+	public void push(int item) {
+
+		if (tos >= stackArray.length) {
+			System.out.println("stack overflow");
+		}
+
+		else {
+			tos++;
+			stackArray[tos] = item;
+		}
+
+	}
+
+	@Override
+	public int pop() throws ArrayIndexOutOfBoundsException {
+
+		if (tos < 0) {
+			System.out.println("stack is empty");
+
+		} else {
+
+			int temp = stackArray[tos--];
+			return temp;
+
+		}
+		return 0;
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Test_Stack t = new Test_Stack();
+		t.push(10);
+		t.push(20);
+		t.push(50);
+
+		System.out.println("after push");
+		for (int i = 0; i <= tos; i++) {
+
+			System.out.println(stackArray[i]);
+		}
+
+		t.pop();
+
+		System.out.println("after pop");
+		for (int i = 0; i <= tos; i++) {
+			System.out.println(stackArray[i]);
+		}
+
+	}
+
+}
+
+
+&&&&&&&&&&&&&&&& ALLAINZ .classses
+
+package allianz.classes;
+
+public class Student {
+
+	private int rollno;
+	private String name;
+	private float marks;
+
+	public Student() {
+
+		setRollno (0);
+		setName (null);
+		setMarks (0.0f);
+		System.out.println("student ->def...");
+
+	}
+
+	public Student(int prollno, String pname, float pmarks) {
+		setRollno (prollno);
+		setName (pname);
+		setMarks  (pmarks);
+		System.out.println("student ->param...");
+	}
+
+	public int getRollno() {
+		return rollno;
+	}
+
+	public void setRollno(int rollno) {
+		this.rollno = rollno;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public float getMarks() {
+		return marks;
+	}
+
+	public void setMarks(float marks) {
+		this.marks = marks;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [rollno=" + rollno + ", name=" + name + ", marks=" + marks + "]";
+	}
+	
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		
+		
+		if(obj==null) return false;
+		if(obj==this) return false;
+		if(!(obj instanceof Student)) return false;
+		
+		Student otherstudent = (Student) obj;
+		
+		if(this.marks==otherstudent.getMarks()&&
+		this.rollno==otherstudent.getRollno()&&
+		this.name.equals(otherstudent.getName()))
+			
+			
+			return true;
+	
+		else
+			
+		return false;
+	
+		
+	}
+
+	public static void main(String[] args) {
+
+		Student s1, s2, s3;
+		s1 = new Student();
+		s2 = new Student(1, "purva", 101);
+		System.out.println(s1);
+		System.out.println(s2);
+
+		s1.rollno = 1;
+		s1.name = "purva";
+		s1.marks = 101;
+		System.out.println(s1);
+		
+		s3= new Student(2,"piyu",99);
+		
+
+		// s1=s2;
+		if (s1 == s2)
+			System.out.println("s1==s2");
+		else
+			System.out.println("s1!=s2");
+
+		if (s1.equals(s2))
+			System.out.println("s1 equals s2");
+		else
+			System.out.println("s not equals s2");
+
+		System.out.println(s1.getClass().getName() + '@' + Integer.toHexString(s1.hashCode()));
+
+	}
+
+}
+
+
+*********************Time
+
+package allianz.classes;
+
+public class Time {
+
+	private int hours,minute,second;
+	
+	
+	public int getHours() {
+		return hours;
+	}
+
+
+	public void setHours(int hours) {
+		if(hours >0 && hours <=24)
+			this.hours=hours;
+		
+	
+	}
+
+
+	public int getMinute() {
+		return minute;
+	}
+
+
+	public void setMinute(int minute) {
+		if(minute >=1 && minute <=60)
+		this.minute = minute;
+	}
+
+
+	public int getSecond() {
+		return second;
+	}
+
+
+	public void setSecond(int second) {
+		if(second >=1 && second <=60)
+		this.second = second;
+	}
+
+
+	public Time() {
+	System.out.println("default const");
+	}
+	
+	
+
+	
+	public Time(int hours, int minute, int second) {
+	
+		System.out.println("param const");
+		setHours (hours);
+		setMinute  (minute);
+		setSecond  ( second);
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Time [hours=" + hours + ", minute=" + minute + ", second=" + second + "]";
+	}
+
+
+	public static void main(String[] args) {
+		
+		Time t=new Time();
+		t.setHours(1);
+		t.setMinute(30);
+		t.setSecond(15);
+		
+		System.out.println(t);
+
+Time t2=new Time(2, 50, 25);
+System.out.println(t2);
+
+		
+	}
+
+}
+
+
+*****************
+
+package allianz.classes;
+
+public class Date {
+
+	private int date,month,year;
+	
+	
+	
+	public Date(int date, int month, int year) {
+		System.out.println("param const");
+		setDate ( date);
+		setMonth  (month);
+		setYear (year);
+	}
+
+	public Date() {
+		System.out.println("default");
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "Date [date=" + date + ", month=" + month + ", year=" + year + "]";
+	}
+
+	public int getDate() {
+		return date;
+	}
+
+	public void setDate(int date) {
+		this.date = date;
+	}
+
+	public int getMonth() {
+		return month;
+	}
+
+	public void setMonth(int month) {
+		this.month = month;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Date d=new Date();
+		d.setDate(12);
+		d.setMonth(10);
+		d.setYear(2019);
+		
+		System.out.println(d);
+		
+		Date d2=new Date(22, 9, 1994);
+		System.out.println(d2);
+
+	}
+
+}
+
+
+**************
+
+package allianz.classes;
+
+public class DateTime  {
+
+	private Date date;
+	private Time time;
+	
+	
+	
+	public DateTime() {
+		
+
+
+	}
+
+
+
+	public DateTime(Date date, Time time) {
+		this.date = date;
+		this.time = time;
+	}
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		DateTime dt=new DateTime();
+	}
+
+}
